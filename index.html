@@ -4,17 +4,26 @@
 	<title>One.com SMTP debugger</title>
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	<script type="text/javascript">
+		var validated = true;
+
 		var req = new XMLHttpRequest();
 		req.open('GET', document.location, false);
 		req.send(null);
 		var headers = req.getAllResponseHeaders().toLowerCase();
 		console.log(headers);
-
+		
 		function manualValidate(ev) {
-		    ev.target.checkValidity();
+		    var isValidated = ev.target.checkValidity();
+		    console.log(isValidated, "valid?");
 		    return false;
 		}
-		$("form")[0].bind("submit", manualValidate);
+
+		function submit(){
+			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient'}, function(data) {
+			  console.log(data);
+			});
+		}
+		$("form")[0].bind("submit", submit);
 	</script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<style type="text/css">
@@ -66,16 +75,20 @@
 		<input id="password" type="password" name="password" required>
 		<label for="recipient">Recipient</label>
 		<input id="recipient" type="email" name="recipient" required placeholder="receiver@domain.tld">
-		<input onclick="submit()" type="submit" value="Test">
+		<input onclick="" type="submit" value="Test">
 		</form>
 	</div>
 	<small>This tool uses <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a> library to handle Mail function</small>
-	<script>
-	function submit() {
-		$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient'}, function(data) {
-		  console.log(data);
-		});
+<!-- 	<script>
+	function submit(e) {
+		if (validated) {
+			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient'}, function(data) {
+			  console.log(data);
+			});
+		}
+		console.log(e);
+		e.preventDefault();
 	}
-	</script>
+	</script> -->
 </body>
 </html>
