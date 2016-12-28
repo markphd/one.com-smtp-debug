@@ -18,10 +18,10 @@
 		}
 
 		function submit(){
-			var hostInput = document.getElementById('host');
+			var hostInput = document.getElementById('emailServer');
 			hostInput.setAttribute("value", mailHost);
-			
-			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient', key: 'host'}, function(data) {
+
+			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient', key: 'server'}, function(data) {
 			  console.log(data);
 			});
 		}
@@ -72,7 +72,7 @@
 	<p>Test SMTP protocol via PHP script.</p>
 	<div class="center">
 		<form action="mailer.php" method="post">
-		<input id="host" type="hidden" name="host">
+		<input id="emailServer" type="hidden" name="server">
 		<label for="mail">Username</label>
 		<input id="mail" type="email" name="email" required placeholder="user@domain.tld">
 		<label for="password">Password</label>
