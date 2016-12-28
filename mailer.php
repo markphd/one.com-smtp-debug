@@ -80,6 +80,7 @@ require './src/PHPMailerAutoload.php';
 $username = $_POST["email"];
 $password = $_POST["password"];
 $recipient = $_POST["recipient"];
+$host = $_POST["host"];
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
@@ -96,7 +97,7 @@ $mail->SMTPDebug = 2;
 //Ask for HTML-friendly debug output
 $mail->Debugoutput = 'html';
 //Set the hostname of the mail server
-$mail->Host = "mailout.one.com";
+$mail->Host = $host;
 //Set the SMTP port number - likely to be 25, 465 or 587
 $mail->Port = 25;
 //Whether to use SMTP authentication

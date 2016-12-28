@@ -8,7 +8,8 @@
 		req.open('GET', document.location, false);
 		req.send(null);
 		var headers = req.getAllResponseHeaders().toLowerCase();
-		console.log(headers.indexOf("cph"));
+		var isCPH = headers.indexOf("cph");
+		var host = isCPH > 1 ? "mailout.one.com" : "send.one.com";
 		
 		function manualValidate(ev) {
 		    var isValidated = ev.target.checkValidity();
@@ -17,10 +18,11 @@
 		}
 
 		function submit(){
-			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient'}, function(data) {
+			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient', key: 'host'}, function(data) {
 			  console.log(data);
 			});
 		}
+
 		$("form")[0].bind("submit", submit);
 	</script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -67,6 +69,7 @@
 	<p>Test SMTP protocol via PHP script.</p>
 	<div class="center">
 		<form action="mailer.php" method="post">
+		<input type="hidden" name="host" value=host>
 		<label for="mail">Username</label>
 		<input id="mail" type="email" name="email" required placeholder="user@domain.tld">
 		<label for="password">Password</label>
