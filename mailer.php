@@ -1,3 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>One.com SMTP debugger</title>
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+	<script type="text/javascript">
+		var request = new XMLHttpRequest();
+		var headers = request.getAllResponseHeaders();
+		console.log(headers);
+	</script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<style type="text/css">
+		body, input, label {
+			font-family: 'Varela Round', sans-serif;
+			text-align: center;
+		}
+
+		div.center {
+			margin: 3% auto;
+			width: 280px;
+			text-align: left;
+		}
+
+		input {
+			padding: 0.8em;
+			display: block;
+			min-width: 230px;
+			margin: 1% 0;
+		}
+
+		label {
+			font-weight: 800;
+			padding: 20px 0;
+		}
+
+		input[type="submit"] {
+			padding: 0.6em;
+			margin-top: 2em;
+			background-color: #191919;
+			color: #7d7d7d;
+			font-size: 20px;
+			box-sizing: content-box;
+			border: none;
+			box-shadow: 1px 2px 4px #ccc;
+			text-transform: uppercase;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>One.com SMTP Tester</h1>
+	<p>Test SMTP protocol via PHP script.</p>
+	<div class="center">
+
 <?php
 /**
  * This example shows making an SMTP connection with authentication.
@@ -58,3 +112,5 @@ if (!$mail->send()) {
 } else {
     echo "Message sent!";
 }
+
+</div>
