@@ -45,12 +45,20 @@
 			text-transform: uppercase;
 		}
 
+		.result{
+			width: 80%;
+			font-family: monospace;
+		}
+		.success {
+			color: green;
+		}
+
 	</style>
 </head>
 <body>
 	<h1>One.com SMTP Tester</h1>
 	<p>Test SMTP protocol via PHP script.</p>
-	<div class="center">
+	<div class="result">
 
 <?php
 /**
@@ -110,8 +118,9 @@ $mail->AltBody = 'This is a plain-text message body';
 if (!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
-    echo "Message sent!";
+    echo '<h1 class="success">Message sent!</h1>';
 }
 
 ?>
+
 </div>
