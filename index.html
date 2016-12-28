@@ -2,20 +2,19 @@
 <html>
 <head>
 	<title>One.com SMTP debugger</title>
-		<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 </head>
 <body>
-		<form action="mailer.php" method="post">
+	<form action="mailer.php" method="post">
 		<input type="email" name="email" validation="true">
+		<input type="password" name="password">
+		<input type="text" name="recipient">
 		<input onclick="submit()" type="submit" value="Test">
 	</form>
 	<script>
 	function submit() {
-		$.post('mailer.php', {key: 'email'}, function(data) {
-		  alert(data);
+		$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient'}, function(data) {
+		  console.log(data);
 		});
 	}
 	</script>
