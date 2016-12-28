@@ -9,7 +9,7 @@
 		req.send(null);
 		var headers = req.getAllResponseHeaders().toLowerCase();
 		var isCPH = headers.indexOf("cph");
-		
+		var mailHost = isCPH > 1 ? "mailout.one.com" : "send.one.com";
 		
 		function manualValidate(ev) {
 		    var isValidated = ev.target.checkValidity();
@@ -18,8 +18,9 @@
 		}
 
 		function submit(){
-			var host = isCPH > 1 ? "mailout.one.com" : "send.one.com";
-			var hostInput = document.getElementById('host').setAttribute("value", host);
+			var hostInput = document.getElementById('host');
+			hostInput.setAttribute("value", mailHost);
+			
 			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient', key: 'host'}, function(data) {
 			  console.log(data);
 			});
