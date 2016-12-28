@@ -4,13 +4,11 @@
 	<title>One.com SMTP debugger</title>
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	<script type="text/javascript">
-		var validated = true;
-
 		var req = new XMLHttpRequest();
 		req.open('GET', document.location, false);
 		req.send(null);
 		var headers = req.getAllResponseHeaders().toLowerCase();
-		console.log(headers);
+		console.log(headers['x-debug-backend']);
 		
 		function manualValidate(ev) {
 		    var isValidated = ev.target.checkValidity();
@@ -79,16 +77,5 @@
 		</form>
 	</div>
 	<small>This tool uses <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a> library to handle Mail function</small>
-<!-- 	<script>
-	function submit(e) {
-		if (validated) {
-			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient'}, function(data) {
-			  console.log(data);
-			});
-		}
-		console.log(e);
-		e.preventDefault();
-	}
-	</script> -->
 </body>
 </html>
