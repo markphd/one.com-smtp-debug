@@ -17,10 +17,14 @@
 		    return false;
 		}
 
-		function submit(){
+		function updateHost() {
 			var hostInput = document.getElementById('emailServer');
 			hostInput.setAttribute("value", mailHost);
+		}
 
+		updateHost();
+
+		function submit(){
 			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient', key: 'server'}, function(data) {
 			  console.log(data);
 			});
