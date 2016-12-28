@@ -48,9 +48,14 @@
 		.result{
 			width: 80%;
 			font-family: monospace;
+			text-align: left;
+    		margin: 0 auto;
 		}
 		.success {
 			color: green;
+		}
+		.fail {
+			color: #c33030;
 		}
 
 	</style>
@@ -116,9 +121,9 @@ $mail->AltBody = 'This is a plain-text message body';
 
 //send the message, check for errors
 if (!$mail->send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
+    echo '<h2 class="fail">Mailer Error: ' . $mail->ErrorInfo . '</h2>';
 } else {
-    echo '<h1 class="success">Message sent!</h1>';
+    echo '<h2 class="success">Message sent!</h2>';
 }
 
 ?>
