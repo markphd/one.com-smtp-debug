@@ -4,9 +4,17 @@
 	<title>One.com SMTP debugger</title>
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	<script type="text/javascript">
-		var request = new XMLHttpRequest();
-		var headers = request.getAllResponseHeaders();
+		var req = new XMLHttpRequest();
+		req.open('GET', document.location, false);
+		req.send(null);
+		var headers = req.getAllResponseHeaders().toLowerCase();
 		console.log(headers);
+
+		function manualValidate(ev) {
+		    ev.target.checkValidity();
+		    return false;
+		}
+		$("form")[0].bind("submit", manualValidate);
 	</script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<style type="text/css">
