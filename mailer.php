@@ -80,7 +80,9 @@ require './src/PHPMailerAutoload.php';
 $username = $_POST["email"];
 $password = $_POST["password"];
 $recipient = $_POST["recipient"];
-$host = $_POST["host"];
+$host = $_POST["server"];
+
+var_dump($host);
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
