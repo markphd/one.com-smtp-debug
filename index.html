@@ -53,11 +53,11 @@
 	<div class="center">
 		<form action="mailer.php" method="post">
 		<label for="mail">Username</label>
-		<input id="mail" type="email" name="email" validation="true" placeholder="user@domain.tld">
+		<input id="mail" type="email" name="email" required placeholder="user@domain.tld">
 		<label for="password">Password</label>
-		<input id="password" type="password" name="password">
+		<input id="password" type="password" name="password" required>
 		<label for="recipient">Recipient</label>
-		<input id="recipient" type="email" name="recipient" placeholder="receiver@domain.tld">
+		<input id="recipient" type="email" name="recipient" required placeholder="receiver@domain.tld">
 		<input onclick="submit()" type="submit" value="Test">
 		</form>
 	</div>
