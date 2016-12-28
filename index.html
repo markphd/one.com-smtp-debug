@@ -8,7 +8,7 @@
 		req.open('GET', document.location, false);
 		req.send(null);
 		var headers = req.getAllResponseHeaders().toLowerCase();
-		console.log(headers['x-debug-backend']);
+		console.log(headers.indexOf("cph"));
 		
 		function manualValidate(ev) {
 		    var isValidated = ev.target.checkValidity();
