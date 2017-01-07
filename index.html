@@ -20,6 +20,12 @@
 		function updateHost() {
 			var hostInput = document.getElementById('emailServer');
 			hostInput.setAttribute("value", mailHost);
+
+			var settingsHost = document.getElementById('host');
+			var settingsPort = document.getElementById('port');
+
+			settingsHost.innerHTML = mailHost;
+			settingsPort.innerHTML = 25;
 		}
 
 		updateHost();
@@ -40,9 +46,13 @@
 		}
 
 		div.center {
-			margin: 3% auto;
-			width: 280px;
+			margin: 2% auto;
+			width: 250px;
 			text-align: left;
+		}
+
+		div#settings {
+			margin: 3% 0;
 		}
 
 		input {
@@ -73,19 +83,24 @@
 </head>
 <body onload="updateHost()">
 	<h1>One.com SMTP Tester</h1>
-	<p>Test SMTP protocol via PHP script.</p>
+	<p>Test SMTP connection with authentication</p>
+	<div id="settings">
+		Host: <span id="host" style="border-bottom: 1px dashed;"></span>
+		Port: <span id="port" style="border-bottom: 1px dashed;"></span>
+	</div>
 	<div class="center">
 		<form action="mailer.php" method="post">
 		<input id="emailServer" type="hidden" name="server">
 		<label for="mail">Username</label>
 		<input id="mail" type="email" name="email" required placeholder="user@domain.tld">
 		<label for="password">Password</label>
-		<input id="password" type="password" name="password" required>
+		<input id="password" type="password" name="password" required placeholder="password">
 		<label for="recipient">Recipient</label>
 		<input id="recipient" type="email" name="recipient" required placeholder="receiver@domain.tld">
 		<input onclick="" type="submit" value="Test">
 		</form>
 	</div>
+
 	<small>This tool uses <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a> library to handle Mail function</small>
 </body>
 </html>
