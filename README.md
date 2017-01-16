@@ -2,7 +2,7 @@
 
 Connect to webspace via SSH and clone the repository.
 
-[![asciicast](https://asciinema.org/a/9uce6omfa226dzx0fs1yzpku8.png)](https://asciinema.org/a/9uce6omfa226dzx0fs1yzpku8)
+![alt clone](http://cdn.isprototypeof.me/ssh-clone.gif)
 
 Or simply download the zip file and upload it via FTP
 
