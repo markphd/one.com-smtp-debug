@@ -89,9 +89,6 @@ var_dump($host);
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
 //Tell PHPMailer to use SMTP
-
-$mail->SMTPSecure = 'STARTTLS';
-
 $mail->isSMTP();
 //Enable SMTP debugging
 // 0 = off (for production use)
@@ -103,9 +100,9 @@ $mail->Debugoutput = 'html';
 //Set the hostname of the mail server
 $mail->Host = $host;
 //Set the SMTP port number - likely to be 25, 465 or 587
-$mail->Port = 25;
+$mail->Port = $port;
 //Set TLS / SSL
-$mail->SMTPSecure = "tls";
+$mail->SMTPSecure = $protocol;
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
