@@ -84,7 +84,10 @@ $host = $_POST["server"];
 $port = $_POST["portNumber"];
 $protocol = $_POST["smtpSecure"];
 
-var_dump($host);
+var_dump($protocol);
+echo "<br>";
+var_dump($port);
+echo "<br>";
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
