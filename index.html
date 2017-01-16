@@ -31,7 +31,7 @@
 		updateHost();
 
 		function submit(){
-			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient', key: 'server'}, function(data) {
+			$.post('mailer.php', {key: 'email', key: 'password', key: 'recipient', key: 'server', key: 'portNumber', key: 'smtpSecure'}, function(data) {
 			  console.log(data);
 			});
 		}
@@ -122,7 +122,7 @@
 	<div class="center">
 		<form action="mailer.php" method="post">
 		<label for="port">Port No : </label>
-		 	<select name="portNumber">
+		 	<select id="port" name="portNumber">
 				<option value="25">25</option>
 				<option value="465">465</option>
 				<option value="587">587</option>

@@ -81,6 +81,8 @@ $username = $_POST["email"];
 $password = $_POST["password"];
 $recipient = $_POST["recipient"];
 $host = $_POST["server"];
+$port = $_POST["portNumber"];
+$protocol = $_POST["smtpSecure"];
 
 var_dump($host);
 
