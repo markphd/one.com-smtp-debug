@@ -22,10 +22,10 @@
 			hostInput.setAttribute("value", mailHost);
 
 			var settingsHost = document.getElementById('host');
-			var settingsPort = document.getElementById('port');
+			// var settingsPort = document.getElementById('port');
 
 			settingsHost.innerHTML = mailHost;
-			settingsPort.innerHTML = 25;
+			// settingsPort.innerHTML = 25;
 		}
 
 		updateHost();
@@ -62,9 +62,39 @@
 			margin: 1% 0;
 		}
 
+		select {
+			padding: 0.6em;
+			background-color: #acacac;
+			color: #666;
+			font-size: 15px;
+			margin-left: 20px;
+			margin-bottom: 10px;
+			box-sizing: content-box;
+			border: none;
+			box-shadow: 1px 2px 4px #ccc;
+			text-transform: uppercase;
+			height: 30px;
+			position: relative;
+			left: 50px;
+			top: -20px;
+			min-width: 60px;
+
+		}
+
+		option {
+			color: #ccc;
+			background-color: #fff;
+		}
+
 		label {
 			font-weight: 800;
-			padding: 20px 0;
+			margin: 2% 0;
+		}
+
+		label[for="port"], label[for="smtpSecure"]{
+			position: relative;
+			left: 50px;
+			top: -20px;
 		}
 
 		input[type="submit"] {
@@ -79,6 +109,8 @@
 			text-transform: uppercase;
 		}
 
+
+
 	</style>
 </head>
 <body onload="updateHost()">
@@ -86,10 +118,22 @@
 	<p>Test SMTP connection with authentication</p>
 	<div id="settings">
 		Host: <span id="host" style="border-bottom: 1px dashed;"></span>
-		Port: <span id="port" style="border-bottom: 1px dashed;"></span>
 	</div>
 	<div class="center">
 		<form action="mailer.php" method="post">
+		<label for="port">Port No : </label>
+		 	<select name="portNumber">
+				<option value="25">25</option>
+				<option value="465">465</option>
+				<option value="587">587</option>
+			</select>
+		<br>
+		<label for="smtpSecure">Security: </label>
+		 	<select name="smtpSecure">
+				<option value="ssl">SSL</option>
+				<option value="tls">TLS</option>
+			</select>
+		<br>
 		<input id="emailServer" type="hidden" name="server">
 		<label for="mail">Username</label>
 		<input id="mail" type="email" name="email" required placeholder="user@domain.tld">

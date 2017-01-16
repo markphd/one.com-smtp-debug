@@ -102,6 +102,8 @@ $mail->Debugoutput = 'html';
 $mail->Host = $host;
 //Set the SMTP port number - likely to be 25, 465 or 587
 $mail->Port = 25;
+//Set TLS / SSL
+$mail->SMTPSecure = "tls";
 //Whether to use SMTP authentication
 $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
